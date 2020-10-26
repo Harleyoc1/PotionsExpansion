@@ -1,13 +1,13 @@
 modLoader="javafml" #mandatory
 loaderVersion="[34,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license="All rights reserved"
-issueTrackerURL="http://null.com/" #optional
+issueTrackerURL="https://github.com/Harleyoc1/PotionsExpansion/issues" #optional
 [[mods]] #mandatory
 modId="potionsexpansion" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Potions Expansion" #mandatory
-updateJSONURL="http://harleyoconnor.com/" #optional
-displayURL="http://null.com/" #optional
+updateJSONURL="https://github.com/Harleyoc1/PotionsExpansion/blob/1.16.x/version_info.json?raw=true" #optional
+displayURL="http://harleyoconnor.com/" #optional
 logoFile="null.png" #optional
 credits="" #optional
 authors="Harley O'Connor, Archie Adams" #optional
