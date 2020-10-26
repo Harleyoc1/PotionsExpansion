@@ -4,7 +4,7 @@ license="All rights reserved"
 issueTrackerURL="https://github.com/Harleyoc1/PotionsExpansion/issues" #optional
 [[mods]] #mandatory
 modId="potionsexpansion" #mandatory
-version="${file.jarVersion}" #mandatory
+version="1.16.3-1.0.0" #mandatory hard-coded, use ${file.jarVersion} later
 displayName="Potions Expansion" #mandatory
 updateJSONURL="https://github.com/Harleyoc1/PotionsExpansion/blob/1.16.x/version_info.json?raw=true" #optional
 displayURL="http://harleyoconnor.com/" #optional

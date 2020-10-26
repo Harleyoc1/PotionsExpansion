@@ -113,7 +113,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${config.mc_version}-${config.forge_version}"
 
     // Implement mod libraries required by other mod dependencies.
-    compileOnly fg.deobf("com.feed_the_beast.mods:ftb-gui-library:${config.ftb_gui_library_version}")
+    implementation fg.deobf("com.feed_the_beast.mods:ftb-gui-library:${config.ftb_gui_library_version}")
 
     // Implement mod dependencies.
     implementation fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${config.the_one_probe_version}")
