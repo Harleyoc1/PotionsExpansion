@@ -1,6 +1,11 @@
 package com.harleyoconnor.potionsexpansion;
 
+import com.harleyoconnor.potionsexpansion.events.TooltipEvent;
+import com.harleyoconnor.potionsexpansion.potions.data.PotionHolders;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +20,14 @@ public final class PotionsExpansion {
 
     public PotionsExpansion() {
         ModRegistry.initRegistries();
+
+        MinecraftForge.EVENT_BUS.register(new TooltipEvent());
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+    }
+
+    private void loadComplete (final FMLLoadCompleteEvent event) {
+        PotionHolders.initHolders();
     }
 
     public static Logger getLogger() {
