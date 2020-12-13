@@ -1,7 +1,7 @@
 package com.harleyoconnor.potionsexpansion;
 
 import com.harleyoconnor.potionsexpansion.events.TooltipEvent;
-import com.harleyoconnor.potionsexpansion.potions.data.PotionHolders;
+import com.harleyoconnor.potionsexpansion.potions.data.PotionDataHolders;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
@@ -27,7 +27,7 @@ public final class PotionsExpansion {
     }
 
     private void loadComplete (final FMLLoadCompleteEvent event) {
-        PotionHolders.initHolders();
+        PotionDataHolders.initHolders();
     }
 
     public static Logger getLogger() {

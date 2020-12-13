@@ -7,12 +7,12 @@ import net.minecraft.potion.Effect;
  *
  * @author Harley O'Connor
  */
-public final class PotionHolder {
+public final class PotionData {
 
     private final byte difficulty;
     private final Effect oppositeEffect;
 
-    public PotionHolder(byte difficulty, Effect oppositeEffect) {
+    public PotionData(byte difficulty, Effect oppositeEffect) {
         this.difficulty = difficulty;
         this.oppositeEffect = oppositeEffect;
     }
