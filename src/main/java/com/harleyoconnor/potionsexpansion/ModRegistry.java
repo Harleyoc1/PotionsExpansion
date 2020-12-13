@@ -1,7 +1,10 @@
 package com.harleyoconnor.potionsexpansion;
 
 import net.minecraft.item.Item;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,11 +32,10 @@ public final class ModRegistry {
     }
 
     private static void initPotions () {
-
+        POTIONS.add(new Potion(new EffectInstance(Effects.HASTE, 900)).setRegistryName(new ResourceLocation(ModConstants.MOD_ID, "haste")));
     }
 
     private static void initItems () {
-
     }
 
     @SubscribeEvent
