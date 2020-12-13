@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public final class PotionDataHolders {
 
-    private static Map<Potion, PotionData> potionData = new HashMap<>();
+    private static final Map<Potion, PotionData> potionData = new HashMap<>();
 
     public static void initHolders () {
         ForgeRegistries.POTION_TYPES.forEach(potion -> potionData.put(potion, new PotionData((byte) 1, Effects.HUNGER)));

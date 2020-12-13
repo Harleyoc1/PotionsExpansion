@@ -3,8 +3,6 @@
   "item.minecraft.splash_potion.effect.haste": "Splash Potion of Haste",
   "item.minecraft.lingering_potion.effect.haste": "Lingering Potion of Haste",
 
-
-
   "tooltip.potion.difficulty": "§3Difficulty: %s",
   "tooltip.potion.opposite": "§cOpposite Effect: %s"
 }
