@@ -12,4 +12,6 @@ public final class ModConstants {
     public static final String TOOLTIP_LOCALISATION = "tooltip.";
     public static final String POTION_TOOLTIP_LOCALISATION = TOOLTIP_LOCALISATION + "potion.";
 
+    public static final String JSON_EXTENSION = ".json";
+
 }

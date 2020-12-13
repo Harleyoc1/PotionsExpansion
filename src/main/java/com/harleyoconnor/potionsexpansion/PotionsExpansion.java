@@ -1,6 +1,7 @@
 package com.harleyoconnor.potionsexpansion;
 
 import com.harleyoconnor.potionsexpansion.events.TooltipEvent;
+import com.harleyoconnor.potionsexpansion.files.PotionDataLoader;
 import com.harleyoconnor.potionsexpansion.potions.data.PotionDataHolders;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +21,7 @@ public final class PotionsExpansion {
 
     public PotionsExpansion() {
         ModRegistry.initRegistries();
+        PotionDataLoader.loadFiles();
 
         MinecraftForge.EVENT_BUS.register(new TooltipEvent());
 
