@@ -5,6 +5,7 @@ import com.harleyoconnor.potionsexpansion.files.PotionDataLoader;
 import com.harleyoconnor.potionsexpansion.potions.data.PotionDataHolders;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +22,6 @@ public final class PotionsExpansion {
 
     public PotionsExpansion() {
         ModRegistry.initRegistries();
-        PotionDataLoader.loadFiles();
 
         MinecraftForge.EVENT_BUS.register(new TooltipEvent());
 
