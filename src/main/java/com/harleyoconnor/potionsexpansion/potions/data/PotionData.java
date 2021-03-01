@@ -1,35 +1,51 @@
 package com.harleyoconnor.potionsexpansion.potions.data;
 
 import net.minecraft.potion.Effect;
+import net.minecraft.potion.Potion;
+import net.minecraftforge.registries.ForgeRegistryEntry;
+import net.minecraftforge.registries.IForgeRegistry;
 
 /**
  * Data holder for potions.
  *
  * @author Harley O'Connor
  */
-public final class PotionData {
+public final class PotionData extends ForgeRegistryEntry<PotionData> {
 
     /**
      * Difficulty - the higher this value the more likely the purity will be lower.
      */
-    private final byte difficulty;
+    private byte difficulty = -1;
 
     /**
      * Opposite effect - when a potion 'fails', it gives off this effect instead.
      */
-    private final Effect oppositeEffect;
+    private Effect oppositeEffect;
 
-    public PotionData(byte difficulty, Effect oppositeEffect) {
-        this.difficulty = difficulty;
-        this.oppositeEffect = oppositeEffect;
+    private final Potion potion;
+
+    public static IForgeRegistry<PotionData> REGISTRY;
+
+    public PotionData(final Potion potion) {
+        this.potion = potion;
+        this.setRegistryName(potion.getRegistryName());
     }
 
     public byte getDifficulty() {
         return difficulty;
     }
 
+    public PotionData setDifficulty(byte difficulty) {
+        this.difficulty = difficulty;
+        return this;
+    }
+
     public Effect getOppositeEffect() {
         return oppositeEffect;
     }
 
+    public PotionData setOppositeEffect(Effect oppositeEffect) {
+        this.oppositeEffect = oppositeEffect;
+        return this;
+    }
 }

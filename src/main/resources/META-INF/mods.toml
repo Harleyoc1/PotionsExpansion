@@ -1,28 +1,30 @@
-modLoader="javafml" #mandatory
-loaderVersion="[34,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+modLoader="javafml"
+loaderVersion="[35,)"
 license="All rights reserved"
-issueTrackerURL="https://github.com/Harleyoc1/PotionsExpansion/issues" #optional
-[[mods]] #mandatory
-modId="potionsexpansion" #mandatory
-version="1.16.3-1.0.0" #mandatory hard-coded, use ${file.jarVersion} later
-displayName="Potions Expansion" #mandatory
-updateJSONURL="https://github.com/Harleyoc1/PotionsExpansion/blob/1.16.x/version_info.json?raw=true" #optional
-displayURL="http://harleyoconnor.com/" #optional
-logoFile="null.png" #optional
-credits="" #optional
-authors="Harley O'Connor, Archie Adams" #optional
+issueTrackerURL="https://github.com/Harleyoc1/PotionsExpansion/issues"
+
+[[mods]]
+modId="potionsexpansion"
+version="${file.jarVersion}"
+displayName="Potions Expansion"
+updateJSONURL="https://github.com/Harleyoc1/PotionsExpansion/blob/1.16.x/version_info.json?raw=true"
+displayURL="http://harleyoconnor.com/"
+logoFile="null.png"
+credits=""
+authors="Harley O'Connor, Archie Adams"
 description='''
 A mod that expands on the vanilla potion system.
 '''
-[[dependencies.examplemod]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[34,)" #mandatory
+
+[[dependencies.potionsexpansion]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.examplemod]]
+[[dependencies.potionsexpansion]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3]"
+    versionRange="[1.16.4,)"
     ordering="NONE"
     side="BOTH"
