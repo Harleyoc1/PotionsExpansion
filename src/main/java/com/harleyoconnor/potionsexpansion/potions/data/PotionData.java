@@ -5,6 +5,8 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import javax.annotation.Nullable;
+
 /**
  * Data holder for potions.
  *
@@ -31,6 +33,10 @@ public final class PotionData extends ForgeRegistryEntry<PotionData> {
         this.setRegistryName(potion.getRegistryName());
     }
 
+    public Potion getPotion() {
+        return potion;
+    }
+
     public byte getDifficulty() {
         return difficulty;
     }
@@ -40,6 +46,7 @@ public final class PotionData extends ForgeRegistryEntry<PotionData> {
         return this;
     }
 
+    @Nullable
     public Effect getOppositeEffect() {
         return oppositeEffect;
     }
@@ -48,4 +55,10 @@ public final class PotionData extends ForgeRegistryEntry<PotionData> {
         this.oppositeEffect = oppositeEffect;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "PotionData{" + this.getRegistryName() + "}";
+    }
+
 }

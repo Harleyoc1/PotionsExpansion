@@ -1,5 +1,7 @@
-package com.harleyoconnor.potionsexpansion;
+package com.harleyoconnor.potionsexpansion.registry;
 
+import com.harleyoconnor.potionsexpansion.ModConstants;
+import com.harleyoconnor.potionsexpansion.PotionsExpansion;
 import com.harleyoconnor.potionsexpansion.potions.data.PotionData;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;

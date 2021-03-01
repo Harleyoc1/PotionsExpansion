@@ -1,19 +1,25 @@
 package com.harleyoconnor.potionsexpansion.potions.data;
 
+import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.harleyoconnor.potionsexpansion.util.json.JsonPropertyApplierList;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.potion.Effect;
+import net.minecraft.potion.Potion;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.harleyoconnor.potionsexpansion.util.json.JsonPropertyApplier;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Harley O'Connor
@@ -21,37 +27,49 @@ import java.util.Map;
 public final class PotionDataManager extends JsonReloadListener {
 
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final PotionDataManager MoINSTANCE = new PotionDataManager();
-
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 
-    private PotionDataManager () {
+    /** A {@link JsonPropertyApplier} for applying properties to {@link PotionData} objects. */
+    private final JsonPropertyApplierList<PotionData> appliers = new JsonPropertyApplierList<>(PotionData.class);
+
+    public PotionDataManager () {
         super(GSON, "potions");
+        this.registerAppliers();
+    }
+
+    private void registerAppliers () {
+        this.appliers.register("difficulty", Byte.class, PotionData::setDifficulty)
+                .register("opposite", Effect.class, PotionData::setOppositeEffect);
     }
 
     @Override
     protected void apply(final Map<ResourceLocation, JsonElement> objectIn, final IResourceManager resourceManagerIn, final IProfiler profilerIn) {
+        final Set<ResourceLocation> unregisteredPotions = Sets.newHashSet(ForgeRegistries.POTION_TYPES.getKeys());
+
         for (final Map.Entry<ResourceLocation, JsonElement> entry : objectIn.entrySet()) {
-            if (!entry.getValue().isJsonObject())
-                continue;
-
-            final JsonObject jsonObject = entry.getValue().getAsJsonObject();
-
-            final byte difficulty = jsonObject.get("difficulty").getAsByte();
-            final String opposite = jsonObject.get("opposite").getAsString();
-
-            final Effect oppositeEffect = ForgeRegistries.POTIONS.getValue(new ResourceLocation(opposite));
-            final PotionData potionData = PotionData.REGISTRY.getValue(entry.getKey());
+            final ResourceLocation registryName = entry.getKey();
+            final PotionData potionData = PotionData.REGISTRY.getValue(registryName);
 
             if (potionData == null) {
-                LOGGER.warn("Tried to register potion data for unregistered potion '{}'.", entry.getKey());
+                LOGGER.warn("Skipping loading potion data '{}' as it was not a registered potion.", registryName);
+                return;
+            }
+
+            if (!entry.getValue().isJsonObject()) {
+                LOGGER.warn("Skipping loading potion data '{}' as it's root element was not a Json object.", registryName);
                 continue;
             }
 
-            potionData.setDifficulty(difficulty).setOppositeEffect(oppositeEffect);
+            final JsonObject jsonObject = entry.getValue().getAsJsonObject();
 
-            LOGGER.debug("Added " + entry.getKey() + " to potion data with difficulty " + difficulty + " and opposite effect " + oppositeEffect + ".");
+            this.appliers.applyAll(jsonObject, potionData).forEach(failedResult -> LOGGER.warn("Error whilst loading potion data '{}': ", registryName));
+
+            unregisteredPotions.remove(potionData.getPotion().getRegistryName());
+            LOGGER.debug("Injected Potion Data for '{}'.", registryName);
         }
+
+        if (unregisteredPotions.size() > 0)
+            LOGGER.warn("The following potions did not have potion data assigned, meaning they will not integrate with Potions Expansion: " + unregisteredPotions.toString());
     }
 
 }

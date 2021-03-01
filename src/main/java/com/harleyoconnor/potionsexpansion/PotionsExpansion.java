@@ -1,7 +1,7 @@
 package com.harleyoconnor.potionsexpansion;
 
-import com.harleyoconnor.potionsexpansion.events.DatapackEvents;
 import com.harleyoconnor.potionsexpansion.events.TooltipEvent;
+import com.harleyoconnor.potionsexpansion.registry.ModRegistry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +16,6 @@ public final class PotionsExpansion {
         ModRegistry.initRegistries();
 
         MinecraftForge.EVENT_BUS.register(new TooltipEvent());
-        MinecraftForge.EVENT_BUS.register(new DatapackEvents());
     }
 
     public static ResourceLocation resLoc (final String path) {

@@ -21,7 +21,7 @@ public final class TooltipEvent {
         final String potionResourceString = event.getItemStack().getOrCreateTag().getString("Potion");
         final PotionData potionData = PotionData.REGISTRY.getValue(new ResourceLocation(potionResourceString));
 
-        if (potionData == null)
+        if (potionData == null || potionData.getOppositeEffect() == null)
             return;
 
         event.getToolTip().add(new StringTextComponent(""));
