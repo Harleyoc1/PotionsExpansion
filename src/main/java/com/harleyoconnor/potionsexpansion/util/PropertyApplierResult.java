@@ -1,4 +1,4 @@
-package com.harleyoconnor.potionsexpansion.util.json;
+package com.harleyoconnor.potionsexpansion.util;
 
 /**
  * Stores an error message in the event of a property applier failure.

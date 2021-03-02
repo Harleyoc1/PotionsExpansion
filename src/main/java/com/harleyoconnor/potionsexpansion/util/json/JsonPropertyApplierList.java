@@ -2,6 +2,9 @@ package com.harleyoconnor.potionsexpansion.util.json;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.harleyoconnor.potionsexpansion.util.PropertyApplier;
+import com.harleyoconnor.potionsexpansion.util.PropertyApplierResult;
+import com.harleyoconnor.potionsexpansion.util.VoidPropertyApplier;
 
 import java.util.ArrayList;
 import java.util.List;

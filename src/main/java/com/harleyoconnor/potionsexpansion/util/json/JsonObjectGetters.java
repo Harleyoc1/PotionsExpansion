@@ -161,8 +161,8 @@ public final class JsonObjectGetters {
         }
     });
 
-    public static final JsonObjectGetter<Block> BLOCK_GETTER = register(Block.class, new ForgeRegistryEntryGetter<>(ForgeRegistries.BLOCKS, "block"));
-    public static final JsonObjectGetter<Item> ITEM_GETTER = register(Item.class, new ForgeRegistryEntryGetter<>(ForgeRegistries.ITEMS, "item"));
-    public static final JsonObjectGetter<Effect> EFFECT_GETTER = register(Effect.class, new ForgeRegistryEntryGetter<>(ForgeRegistries.POTIONS, "effect"));
+    public static final JsonObjectGetter<Block> BLOCK_GETTER = register(Block.class, new JsonForgeRegistryGetter<>(ForgeRegistries.BLOCKS, "block"));
+    public static final JsonObjectGetter<Item> ITEM_GETTER = register(Item.class, new JsonForgeRegistryGetter<>(ForgeRegistries.ITEMS, "item"));
+    public static final JsonObjectGetter<Effect> EFFECT_GETTER = register(Effect.class, new JsonForgeRegistryGetter<>(ForgeRegistries.POTIONS, "effect"));
 
 }

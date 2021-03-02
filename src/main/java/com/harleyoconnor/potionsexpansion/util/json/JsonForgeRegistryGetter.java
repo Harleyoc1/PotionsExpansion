@@ -11,12 +11,12 @@ import net.minecraftforge.registries.IForgeRegistry;
  *
  * @author Harley O'Connor
  */
-public final class ForgeRegistryEntryGetter<T extends ForgeRegistryEntry<T>> implements JsonObjectGetter<T> {
+public final class JsonForgeRegistryGetter<T extends ForgeRegistryEntry<T>> implements JsonObjectGetter<T> {
 
     private final IForgeRegistry<T> registry;
     private final String registryDisplayName;
 
-    public ForgeRegistryEntryGetter(final IForgeRegistry<T> registry, final String registryDisplayName) {
+    public JsonForgeRegistryGetter(final IForgeRegistry<T> registry, final String registryDisplayName) {
         this.registry = registry;
         this.registryDisplayName = registryDisplayName;
     }

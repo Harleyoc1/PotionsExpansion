@@ -1,6 +1,9 @@
 package com.harleyoconnor.potionsexpansion.util.json;
 
 import com.google.gson.JsonElement;
+import com.harleyoconnor.potionsexpansion.util.PropertyApplier;
+import com.harleyoconnor.potionsexpansion.util.PropertyApplierResult;
+import com.harleyoconnor.potionsexpansion.util.VoidPropertyApplier;
 
 import javax.annotation.Nullable;
 

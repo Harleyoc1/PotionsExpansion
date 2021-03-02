@@ -1,4 +1,4 @@
-package com.harleyoconnor.potionsexpansion.util.json;
+package com.harleyoconnor.potionsexpansion.util;
 
 /**
  * @author Harley O'Connor

@@ -3,6 +3,7 @@ package com.harleyoconnor.potionsexpansion.registry;
 import com.harleyoconnor.potionsexpansion.ModConstants;
 import com.harleyoconnor.potionsexpansion.PotionsExpansion;
 import com.harleyoconnor.potionsexpansion.potions.data.PotionData;
+import com.harleyoconnor.potionsexpansion.potions.data.PotionDataManager;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -55,6 +56,13 @@ public final class ModRegistry {
         ITEMS.forEach(event.getRegistry()::register);
     }
 
+    /**
+     * This registers empty {@link PotionData} objects into the registry, sharing registry
+     * names with their {@link Potion} objects. The {@link PotionData} is then injected
+     * via {@link PotionDataManager} from datapacks.
+     *
+     * @param event The {@link RegistryEvent.Register} for {@link PotionData}.
+     */
     @SubscribeEvent
     public static void onPotionDataRegistry (final RegistryEvent.Register<PotionData> event) {
         ForgeRegistries.POTION_TYPES.forEach(potion -> event.getRegistry().register(new PotionData(potion)));

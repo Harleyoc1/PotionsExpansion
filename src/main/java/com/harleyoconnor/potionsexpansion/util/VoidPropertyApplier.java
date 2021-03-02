@@ -1,4 +1,4 @@
-package com.harleyoconnor.potionsexpansion.util.json;
+package com.harleyoconnor.potionsexpansion.util;
 
 /**
  * An implementation of {@link PropertyApplier} that assumes the application was
