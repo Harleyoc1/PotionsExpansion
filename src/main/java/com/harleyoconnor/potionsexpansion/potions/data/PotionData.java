@@ -6,6 +6,7 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 /**
  * Data holder for potions.
@@ -22,7 +23,6 @@ public final class PotionData extends ForgeRegistryEntry<PotionData> {
 
     /**
      * Opposite effect - when a potion 'fails', it gives off this effect instead.
-     * <tt>null</tt> signifies the opposite effect has not been set.
      */
     private Effect oppositeEffect;
 
@@ -34,7 +34,7 @@ public final class PotionData extends ForgeRegistryEntry<PotionData> {
 
     public PotionData(final Potion potion) {
         this.potion = potion;
-        this.setRegistryName(potion.getRegistryName());
+        this.setRegistryName(Objects.requireNonNull(potion.getRegistryName()));
     }
 
     public Potion getPotion() {

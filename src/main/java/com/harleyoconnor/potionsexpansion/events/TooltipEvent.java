@@ -26,7 +26,7 @@ public final class TooltipEvent {
 
         event.getToolTip().add(new StringTextComponent(""));
         event.getToolTip().add(new TranslationTextComponent(ModConstants.POTION_TOOLTIP + "difficulty", "§b" + potionData.getDifficulty()));
-        event.getToolTip().add(new TranslationTextComponent(ModConstants.POTION_TOOLTIP + "opposite", new StringTextComponent("§4" + new TranslationTextComponent(potionData.getOppositeEffect().getName()).getString())));
+        event.getToolTip().add(new TranslationTextComponent(ModConstants.POTION_TOOLTIP + "opposite", new StringTextComponent("§4" + new TranslationTextComponent(potionData.getOppositeEffect().getDescriptionId()).getString())));
     }
 
 }

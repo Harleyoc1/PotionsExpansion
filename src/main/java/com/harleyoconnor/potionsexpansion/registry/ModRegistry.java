@@ -40,7 +40,7 @@ public final class ModRegistry {
     }
 
     private static void initPotions () {
-        POTIONS.add(new Potion(new EffectInstance(Effects.HASTE, 900)).setRegistryName(new ResourceLocation(ModConstants.MOD_ID, "haste")));
+        POTIONS.add(new Potion(new EffectInstance(Effects.DIG_SPEED, 900)).setRegistryName(new ResourceLocation(ModConstants.MOD_ID, "haste")));
     }
 
     private static void initItems () {
